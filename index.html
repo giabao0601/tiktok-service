@@ -26,7 +26,7 @@ nav ul li a:hover{background:#575757;border-radius:5px;}
   overflow:hidden;
   background: linear-gradient(135deg, #ff0000, #00aaff, #ff0000, #00aaff);
   background-size:400% 400%;
-  animation: gradientBG 15s ease infinite;
+  animation: gradientBG 20s ease infinite;
   color:white;
   padding:100px 20px;
   text-align:center;
@@ -87,14 +87,16 @@ nav ul li a:hover{background:#575757;border-radius:5px;}
   background:rgba(0,0,0,0.9);color:#ff004f;text-shadow:0 0 8px #ff004f,0 0 12px #00f7ff;transform:translateY(-3px);
 }
 
-/* Floating logos zig-zag */
+/* Floating logos */
 .floating-logos{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;}
-.floating-logo{position:absolute;width:45px;animation-timing-function:ease-in-out;}
+.floating-logo{position:absolute;width:45px;opacity:0.9;}
 
-/* Left logos animation */
-@keyframes floatLeft1{0%,100%{transform:translate(0,0);}25%{transform:translate(-3px,-5px);}50%{transform:translate(4px,3px);}75%{transform:translate(-2px,-3px);}}
-
-/* (Các floatLeft2-5 và floatRight1-5 giống code gốc) */
+/* Hiệu ứng trôi nhẹ lên xuống (mỗi logo có nhịp riêng) */
+@keyframes float1 {0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+@keyframes float2 {0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);}}
+@keyframes float3 {0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);}}
+@keyframes float4 {0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);}}
+@keyframes float5 {0%,100%{transform:translateY(0);} 50%{transform:translateY(-16px);}}
 
 /* FOOTER */
 footer{
@@ -121,10 +123,6 @@ footer a.highlight-link:hover{
   0%,50%,100%{opacity:1;}
   25%,75%{opacity:0.4;}
 }
-
-/* ZALO CHAT ICON */
-.zalo-chat{position:fixed;bottom:20px;right:20px;width:50px;height:50px;z-index:10;}
-.zalo-chat img{width:100%;height:100%;}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -158,29 +156,30 @@ footer a.highlight-link:hover{
 
 <section class="about" id="about">
   <div class="floating-logos">
-    <!-- Left logos -->
-    <img class="floating-logo" style="top:10%; left:5%; animation: floatLeft1 5s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
-    <img class="floating-logo" style="top:30%; left:8%; animation: floatLeft2 5.5s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
-    <img class="floating-logo" style="top:50%; left:6%; animation: floatLeft3 6s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
-    <img class="floating-logo" style="top:70%; left:9%; animation: floatLeft4 6.5s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
-    <img class="floating-logo" style="top:85%; left:7%; animation: floatLeft5 5.8s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <!-- Left side -->
+    <img class="floating-logo" style="top:10%; left:5%; animation: float1 5s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:30%; left:8%; animation: float2 6s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:50%; left:6%; animation: float3 5.5s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:70%; left:9%; animation: float4 6.5s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:85%; left:7%; animation: float5 7s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
 
-    <!-- Right logos -->
-    <img class="floating-logo" style="top:15%; right:5%; animation: floatRight1 5.2s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
-    <img class="floating-logo" style="top:35%; right:8%; animation: floatRight2 5.7s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
-    <img class="floating-logo" style="top:55%; right:6%; animation: floatRight3 6.2s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
-    <img class="floating-logo" style="top:75%; right:9%; animation: floatRight4 6.6s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
-    <img class="floating-logo" style="top:90%; right:7%; animation: floatRight5 6s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <!-- Right side -->
+    <img class="floating-logo" style="top:15%; right:5%; animation: float3 5.5s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:35%; right:8%; animation: float1 6s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:55%; right:6%; animation: float4 7s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:75%; right:9%; animation: float2 6.8s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:90%; right:7%; animation: float5 7.2s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
   </div>
+
   <div class="about-content">
     <h2>Dịch vụ TikTok</h2>
     <ul class="service-list">
-      <li><a href="https://zalo.me/0981705432">✅ Tăng lượt theo dõi 👤</a></li>
-      <li><a href="https://zalo.me/0981705432">✅ Tăng lượt chia sẻ 📤</a></li>
-      <li><a href="https://zalo.me/0981705432">✅ Tăng lượt thích video 💗</a></li>
-      <li><a href="https://zalo.me/0981705432">✅ Tăng lượt xem video 👀</a></li>
-      <li><a href="https://zalo.me/0981705432">✅ Tăng lượt lưu video 📥</a></li>
-      <li><a href="https://zalo.me/0981705432">✅ Nạp xu TikTok giá rẻ 💰</a></li>
+      <li><a href="#" onclick="sendToZalo('Chào bạn, tôi muốn tăng lượt theo dõi TikTok 👤')">✅ Tăng lượt theo dõi 👤</a></li>
+      <li><a href="#" onclick="sendToZalo('Chào bạn, tôi muốn tăng lượt chia sẻ video 📤')">✅ Tăng lượt chia sẻ 📤</a></li>
+      <li><a href="#" onclick="sendToZalo('Chào bạn, tôi muốn tăng lượt thích video 💗')">✅ Tăng lượt thích video 💗</a></li>
+      <li><a href="#" onclick="sendToZalo('Chào bạn, tôi muốn tăng lượt xem video 👀')">✅ Tăng lượt xem video 👀</a></li>
+      <li><a href="#" onclick="sendToZalo('Chào bạn, tôi muốn tăng lượt lưu video 📥')">✅ Tăng lượt lưu video 📥</a></li>
+      <li><a href="#" onclick="sendToZalo('Chào bạn, tôi muốn nạp xu TikTok 💰')">✅ Nạp xu TikTok giá rẻ 💰</a></li>
     </ul>
   </div>
 </section>
@@ -190,9 +189,15 @@ footer a.highlight-link:hover{
   <p>&copy; Bạn trao tôi sự tin tưởng, tôi sẽ trả lại bạn sự hài lòng</p>
 </footer>
 
-<a href="https://zalo.me/0981705432" target="_blank" class="zalo-chat">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Zalo_logo.png" alt="Zalo">
-</a>
+<!-- Script gửi tin nhắn Zalo -->
+<script>
+function sendToZalo(message) {
+  const phone = '0981705432'; // số Zalo của bạn
+  const encoded = encodeURIComponent(message);
+  const zaloURL = `https://zalo.me/${phone}?message=${encoded}`;
+  window.open(zaloURL, '_blank');
+}
+</script>
 
 </body>
 </html>
