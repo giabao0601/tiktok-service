@@ -1,298 +1,198 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dịch Vụ Mạng Xã Hội TikTok</title>
-    <meta name="description" content="Dịch vụ tăng tương tác TikTok chuyên nghiệp, giúp bạn phát triển nội dung video và thu hút người theo dõi.">
-    <style>
-        /* Reset cơ bản */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dịch Vụ Mạng Xã Hội TikTok</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background-color:#f4f4f9;color:#555;overflow-x:hidden;}
 
-        body {
-            line-height: 1.6;
-            background-color: #f4f4f9;
-            color: #555;
-        }
+/* HEADER */
+header{background-color:#1E3A8A;color:white;padding:20px 10px;text-align:center;}
+header h1{font-size:1.8rem;}
 
-        header {
-            background-color: #1E3A8A;
-            color: white;
-            padding: 20px 10px;
-            text-align: center;
-        }
+/* NAV */
+nav{background-color:#000;}
+nav ul{display:flex;justify-content:center;list-style:none;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+nav ul::-webkit-scrollbar{display:none;}
+nav ul li{flex:0 0 auto;margin:0 8px;}
+nav ul li a{color:white;text-decoration:none;font-weight:bold;padding:12px 16px;display:block;white-space:nowrap;transition:background .3s;}
+nav ul li a:hover{background:#575757;border-radius:5px;}
 
-        header h1 {
-            font-size: 1.8rem;
-        }
+/* HERO */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background: linear-gradient(135deg, #ff0000, #00aaff, #ff0000, #00aaff);
+  background-size:400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color:white;
+  padding:100px 20px;
+  text-align:center;
+}
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.3);
+  z-index:1;
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  margin:0 auto;
+}
+.hero h1{
+  font-size:2.5rem;
+  text-shadow:0 2px 8px rgba(0,0,0,0.6);
+  margin-bottom:15px;
+}
+.hero p{
+  font-size:1.2rem;
+  text-shadow:0 1px 6px rgba(0,0,0,0.5);
+  margin:0.25rem auto;
+  max-width:800px;
+}
 
-        nav {
-            background-color: #000;
-        }
+/* DỊCH VỤ */
+.about{
+  position:relative;
+  overflow:hidden;
+  background-color:#000;
+  color:white;
+  padding:100px 20px;
+  text-align:center;
+}
+.about h2{
+  color:#00f7ff;
+  font-size:2rem;
+  text-shadow:0 0 8px #00f7ff,0 0 12px #ff004f;
+  margin-bottom:30px;
+  font-weight:bold;
+}
+.service-list{list-style:none;padding:0;display:grid;gap:15px;max-width:600px;margin:0 auto;position:relative;z-index:2;}
+.service-list li a{
+  display:flex;align-items:center;justify-content:center;text-decoration:none;color:#fff;font-weight:bold;font-size:1.1rem;
+  background:rgba(0,0,0,0.6);padding:14px;border-radius:8px;text-shadow:0 0 4px #00f7ff;transition:all .3s ease;
+}
+.service-list li a:hover{
+  background:rgba(0,0,0,0.9);color:#ff004f;text-shadow:0 0 8px #ff004f,0 0 12px #00f7ff;transform:translateY(-3px);
+}
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-        }
+/* Floating logos zig-zag */
+.floating-logos{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;}
+.floating-logo{position:absolute;width:45px;animation-timing-function:ease-in-out;}
 
-        nav ul li {
-            margin: 0 10px;
-        }
+/* Left logos animation */
+@keyframes floatLeft1{0%,100%{transform:translate(0,0);}25%{transform:translate(-3px,-5px);}50%{transform:translate(4px,3px);}75%{transform:translate(-2px,-3px);}}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 14px 10px;
-            display: block;
-            transition: background 0.3s;
-        }
+/* (Các floatLeft2-5 và floatRight1-5 giống code gốc) */
 
-        nav ul li a:hover {
-            background-color: #575757;
-            border-radius: 5px;
-        }
+/* FOOTER */
+footer{
+  background-color:#007BFF;
+  color:white;
+  text-align:center;
+  padding:40px 20px;
+  font-size:1.1rem;
+  font-weight:bold;
+}
+footer a.highlight-link{
+  color:#fff;
+  text-decoration:underline;
+  animation: blink 1.2s infinite;
+  transition: transform 0.2s, color 0.2s;
+}
+footer a.highlight-link:hover{
+  transform: scale(1.1);
+  color:#ffeb3b;
+}
 
-        .hero {
-            position: relative;
-            text-align: center;
-            padding: 80px 20px;
-            background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
-            color: white;
-        }
+/* Nhấp nháy */
+@keyframes blink{
+  0%,50%,100%{opacity:1;}
+  25%,75%{opacity:0.4;}
+}
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.45);
-            z-index: 1;
-        }
+/* ZALO CHAT ICON */
+.zalo-chat{position:fixed;bottom:20px;right:20px;width:50px;height:50px;z-index:10;}
+.zalo-chat img{width:100%;height:100%;}
 
-        .hero h1, .hero p {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px #000;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 750px;
-            margin: 0 auto;
-            text-shadow: 1px 1px 3px #000;
-        }
-
-        /* Section dịch vụ */
-        .about {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #fff;
-        }
-
-        .about h2 {
-            margin-bottom: 30px;
-            color: #4CAF50;
-            font-size: 1.8rem;
-        }
-
-        .service-list {
-            list-style: none;
-            padding-left: 0;
-            display: grid;
-            gap: 15px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .service-list li {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333;
-            transition: transform 0.3s, background 0.3s;
-            border-radius: 8px;
-        }
-
-        .service-list li a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: inherit;
-            background-color: #f9f9f9;
-            padding: 12px;
-            border-radius: 8px;
-        }
-
-        .service-list li .icon {
-            margin-right: 10px;
-            font-size: 1.2rem;
-            color: #4CAF50;
-        }
-
-        .service-list li a:hover {
-            color: #1E3A8A;
-            transform: translateY(-2px);
-            background-color: #eef3ff;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 25px 10px;
-            margin-top: 50px;
-            font-size: 0.95rem;
-        }
-
-        /* Nút Zalo cố định bên phải */
-        .zalo-chat {
-            position: fixed;
-            bottom: 20px;
-            right: 15px;
-            background-color: #00AEEF;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            border-radius: 50%;
-            width: 55px;
-            height: 55px;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            z-index: 9999;
-        }
-
-        .zalo-chat img {
-            width: 35px;
-            height: 35px;
-        }
-
-        .zalo-chat:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-        }
-
-        /* ====================
-           MOBILE FIRST
-        ==================== */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.4rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 5px 0;
-            }
-
-            .hero {
-                padding: 60px 15px;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero p {
-                font-size: 0.95rem;
-            }
-
-            .service-list {
-                grid-template-columns: 1fr;
-            }
-
-            .service-list li a {
-                font-size: 0.95rem;
-                padding: 10px;
-            }
-
-            footer {
-                font-size: 0.85rem;
-            }
-        }
-
-        /* ====================
-           DESKTOP
-        ==================== */
-        @media (min-width: 769px) {
-            .service-list {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            footer {
-                font-size: 1rem;
-            }
-        }
-    </style>
+/* RESPONSIVE */
+@media(max-width:768px){
+  header h1{font-size:1.4rem;}
+  .hero h1{font-size:1.7rem;}
+  .about h2{font-size:1.6rem;}
+  .service-list li a{font-size:1rem;padding:10px;}
+  .floating-logo{width:35px;}
+  nav ul li a{padding:8px 12px;font-size:0.95rem;}
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>Dịch Vụ Mạng Xã Hội TikTok</h1>
-    </header>
+<header><h1>Dịch Vụ Mạng Xã Hội TikTok</h1></header>
+<nav>
+  <ul>
+    <li><a href="#home">Trang Chủ</a></li>
+    <li><a href="#about">Dịch Vụ</a></li>
+    <li><a href="#contact">Liên Hệ</a></li>
+  </ul>
+</nav>
 
-    <nav>
-        <ul>
-            <li><a href="#home">Trang Chủ</a></li>
-            <li><a href="#about">Dịch vụ</a></li>
-            <li><a href="#contact">Liên Hệ</a></li>
-        </ul>
-    </nav>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Mạng Xã Hội TikTok</h1>
+    <p>TikTok là mạng xã hội video ngắn cho phép bạn tạo và chia sẻ video đầy sáng tạo.</p>
+    <p>Dịch vụ của chúng tôi giúp bạn tăng tương tác và phát triển tài khoản hiệu quả.</p>
+  </div>
+</section>
 
-    <section class="hero" id="home">
-        <h1>Mạng Xã Hội TikTok</h1>
-        <p>TikTok là mạng xã hội video ngắn cho phép bạn tạo và chia sẻ video đầy sáng tạo.</p>
-        <p>Dịch vụ của chúng tôi giúp bạn tăng tương tác và phát triển tài khoản hiệu quả.</p>
-    </section>
+<section class="about" id="about">
+  <div class="floating-logos">
+    <!-- Left logos -->
+    <img class="floating-logo" style="top:10%; left:5%; animation: floatLeft1 5s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:30%; left:8%; animation: floatLeft2 5.5s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:50%; left:6%; animation: floatLeft3 6s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:70%; left:9%; animation: floatLeft4 6.5s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:85%; left:7%; animation: floatLeft5 5.8s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
 
-    <section class="about" id="about">
-        <h2>Dịch vụ TikTok</h2>
-        <ul class="service-list">
-            <li><a href="https://zalo.me/0981705432"><span class="icon">✅</span>Tăng lượt theo dõi 👤</a></li>
-            <li><a href="https://zalo.me/0981705432"><span class="icon">✅</span>Tăng lượt chia sẻ 📤</a></li>
-            <li><a href="https://zalo.me/0981705432"><span class="icon">✅</span>Tăng lượt thích video 💗</a></li>
-            <li><a href="https://zalo.me/0981705432"><span class="icon">✅</span>Tăng lượt xem video 👀</a></li>
-            <li><a href="https://zalo.me/0981705432"><span class="icon">✅</span>Tăng lượt lưu video 📥</a></li>
-            <li><a href="https://zalo.me/0981705432"><span class="icon">✅</span>Nạp xu TikTok giá rẻ 💰</a></li>
-        </ul>
-    </section>
+    <!-- Right logos -->
+    <img class="floating-logo" style="top:15%; right:5%; animation: floatRight1 5.2s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:35%; right:8%; animation: floatRight2 5.7s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:55%; right:6%; animation: floatRight3 6.2s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:75%; right:9%; animation: floatRight4 6.6s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+    <img class="floating-logo" style="top:90%; right:7%; animation: floatRight5 6s ease-in-out infinite;" src="https://img.freepik.com/vector-cao-cap/logo-tik-tok_578229-290.jpg" alt="TikTok">
+  </div>
+  <div class="about-content">
+    <h2>Dịch vụ TikTok</h2>
+    <ul class="service-list">
+      <li><a href="https://zalo.me/0981705432">✅ Tăng lượt theo dõi 👤</a></li>
+      <li><a href="https://zalo.me/0981705432">✅ Tăng lượt chia sẻ 📤</a></li>
+      <li><a href="https://zalo.me/0981705432">✅ Tăng lượt thích video 💗</a></li>
+      <li><a href="https://zalo.me/0981705432">✅ Tăng lượt xem video 👀</a></li>
+      <li><a href="https://zalo.me/0981705432">✅ Tăng lượt lưu video 📥</a></li>
+      <li><a href="https://zalo.me/0981705432">✅ Nạp xu TikTok giá rẻ 💰</a></li>
+    </ul>
+  </div>
+</section>
 
-    <footer id="contact">
-        <p>Liên hệ: Zalo | SĐT: 0981-705-432</p>
-        <p>&copy; Bạn trao tôi sự tin tưởng, tôi sẽ trả lại bạn sự hài lòng</p>
-    </footer>
+<footer id="contact">
+  <p>📞 Liên hệ ngay: <a href="https://zalo.me/0981705432" target="_blank" class="highlight-link">Zalo | 0981-705-432</a></p>
+  <p>&copy; Bạn trao tôi sự tin tưởng, tôi sẽ trả lại bạn sự hài lòng</p>
+</footer>
 
-    <!-- Nút Zalo cố định bên phải -->
-    <a href="https://zalo.me/0981705432" target="_blank" class="zalo-chat">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Zalo_logo.png" alt="Zalo">
-    </a>
+<a href="https://zalo.me/0981705432" target="_blank" class="zalo-chat">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Zalo_logo.png" alt="Zalo">
+</a>
 
 </body>
 </html>
